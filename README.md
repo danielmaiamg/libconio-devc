@@ -37,13 +37,13 @@ h. Pronto! Utilize o código do arquivo "cores_exemplo.c" para testar a instala�
 ==========================================
 Créditos:
 Prof. Daniel Cosme Mendonça Maia
-Instituto Federal do Norte de Minas Gerais
-Campus Pirapora
+Instituto Federal do Norte de Minas Gerais - IFNMG - Campus Pirapora
+
 Email: daniel.maia[at]ifnmg.edu.br
 
 Notas:
 * Estes mesmos arquivos poderão ser utilizados no Code::Blocks para instalação da biblioteca conio. No entanto, sua instalação deve seguir passos específicos
 para este compilador.
 
-** A referência para o diretório "C:\Program Files (x86)\Dev-Cpp\MinGW64" pode alterar de acordo com o diretório utilizado para instalação do DEV-C++.
+* A referência para o diretório "C:\Program Files (x86)\Dev-Cpp\MinGW64" pode alterar de acordo com o diretório utilizado para instalação do DEV-C++.
 
