@@ -1,0 +1,137 @@
+/** @file constream
+ * A constream implementation for Mingw/Dev-C++.
+ * @warning There is not implemented constream class, only manipulators
+ * for iostream, so use them on cin/cout.
+ *
+ * @author Michal Molhanec <michal@molhanec.net>
+ *
+ * Offered for use in the public domain without any warranty.
+ */
+
+#ifndef _CONSTREAM_
+#define _CONSTREAM_
+
+#include <iostream>
+#include "conio2.h"
+
+/// This namespace contain all C++ specific things.
+namespace conio {
+
+struct _Setxy { int x,y; };
+/// setxy manipulator
+/// @see gotoxy
+inline _Setxy setxy (int x, int y) {
+    _Setxy z; z.x = x; z.y = y; return z;
+}
+template<typename CharT, typename Traits>
+inline std::basic_ostream<CharT,Traits>&
+operator<<(std::basic_ostream<CharT,Traits>& o, _Setxy f) {
+    ::gotoxy (f.x, f.y);
+    return o;
+}
+
+struct _Setclr { int color; };
+/// setclr manipulator
+/// @see textcolor
+inline _Setclr setclr (int color) {
+    _Setclr x; x.color = color; return x;
+}
+template<typename CharT, typename Traits>
+inline std::basic_ostream<CharT,Traits>&
+operator<<(std::basic_ostream<CharT,Traits>& o, _Setclr f) {
+    ::textcolor (f.color);
+    return o;
+}
+
+struct _Setbk { int color; };
+/// setbk manipulator
+/// @see textbackground
+inline _Setbk setbk (int color) {
+    _Setbk x; x.color = color; return x;
+}
+template<typename CharT, typename Traits>
+inline std::basic_ostream<CharT,Traits>&
+operator<<(std::basic_ostream<CharT,Traits>& o, _Setbk f) {
+    ::textbackground (f.color);
+    return o;
+}
+
+struct _Setattr { int _attr; };
+/// setattr manipulator
+/// @see textattr
+inline _Setattr setattr (int _attr) {
+    _Setattr x; x._attr = _attr; return x;
+}
+template<typename CharT, typename Traits>
+inline std::basic_ostream<CharT,Traits>&
+operator<<(std::basic_ostream<CharT,Traits>& o, _Setattr f) {
+    ::textattr (f._attr);
+    return o;
+}
+
+struct _Setcrsrtype { int type; };
+/// setcrsrtype manipulator
+/// @see _setcursortype
+inline _Setcrsrtype setcrsrtype (int type) {
+    _Setcrsrtype x; x.type = type; return x;
+}
+template<typename CharT, typename Traits>
+inline std::basic_ostream<CharT,Traits>&
+operator<<(std::basic_ostream<CharT,Traits>& o, _Setcrsrtype f) {
+    ::_setcursortype (f.type);
+    return o;
+}
+
+/// clrscr manipulator
+/// @see ::clrscr(void)
+inline std::ostream& clrscr (std::ostream& o) {
+    ::clrscr();
+    return o;
+}
+
+/// clreol manipulator
+/// @see ::clreol(void)
+inline std::ostream& clreol (std::ostream& o) {
+    ::clreol();
+    return o;
+}
+
+/// highvideo manipulator
+/// @see ::highvideo(void)
+inline std::ostream& highvideo (std::ostream& o) {
+    ::highvideo();
+    return o;
+}
+
+/// lowvideo manipulator
+/// @see ::lowvideo(void)
+inline std::ostream& lowvideo (std::ostream& o) {
+    ::lowvideo();
+    return o;
+}
+
+/// normvideo manipulator
+/// @see ::normvideo(void)
+inline std::ostream& normvideo (std::ostream& o) {
+    ::normvideo();
+    return o;
+}
+
+/// delline manipulator
+/// @see ::delline(void)
+inline std::ostream& delline (std::ostream& o) {
+    ::delline();
+    return o;
+}
+
+/// insline manipulator
+/// @see ::insline(void)
+inline std::ostream& insline (std::ostream& o) {
+    ::insline();
+    return o;
+}
+
+}
+
+#endif  /* not defined _CONSTREAM_ */
+
